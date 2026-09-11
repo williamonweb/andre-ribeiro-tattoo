@@ -1,3 +1,5 @@
+import { CmsSaveButton } from "@/components/blob-image-input";
+
 export function PageHeaderFields({ data }: { data: { eyebrow: string; title: string; accent?: string; description: string } }) {
   return <div className="form-grid admin-editor-grid">
     <label>Etiqueta<input name="eyebrow" defaultValue={data.eyebrow} required/></label>
@@ -11,4 +13,4 @@ export function EditorCard({ number, children }: { number: number; children: Rea
   return <fieldset className="admin-item-editor"><legend>Item {String(number).padStart(2,"0")}</legend><div className="form-grid admin-editor-grid">{children}</div></fieldset>;
 }
 
-export function SaveButton() { return <div className="admin-savebar"><span>As alterações aparecem no site assim que forem salvas.</span><button type="submit">Salvar alterações</button></div>; }
+export function SaveButton() { return <CmsSaveButton/>; }
