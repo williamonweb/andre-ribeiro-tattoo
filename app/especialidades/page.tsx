@@ -11,7 +11,7 @@ export default async function EspecialidadesPage() {
       <section className="specialty-example-grid">
         {content.items.map((item,index) => (
           <article key={item.title}>
-            <div className="specialty-example-image" role="img" aria-label={"Exemplo de " + item.title} style={{ backgroundPosition:`center, ${item.position}`, backgroundSize:item.imageUrl?"cover, contain":"cover, 300% auto", backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.55),transparent 56%),url(${item.imageUrl||"/instagram-reference.png"})` }}>
+            <div className="specialty-example-image" role="img" aria-label={"Exemplo de " + item.title} style={{ backgroundPosition:item.imageUrl?"center, center":`center, ${item.position}`, backgroundSize:item.imageUrl?"cover, contain":"cover, 300% auto", backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.55),transparent 56%),url(${item.imageUrl||"/instagram-reference.png"})` }}>
               <span>Exemplo visual</span>
             </div>
             <div className="specialty-example-copy"><span>{String(index+1).padStart(2,"0")}</span><h2>{item.title}</h2><p>{item.text}</p><small>{item.example}</small></div>
