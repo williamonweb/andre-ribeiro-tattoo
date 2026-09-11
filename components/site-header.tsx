@@ -18,7 +18,7 @@ export async function SiteHeader({ active = "", overlay = false }: { active?: st
   return (
     <header className={"site-header inner-header" + (overlay ? " overlay-header" : "")}>
       <Link className="brand" href="/" aria-label="André Ribeiro Tattoo — início">
-        <span className="brand-mark">{appearance.logoInitials}</span>
+        {appearance.logoImageUrl?<img className="brand-logo-image" src={appearance.logoImageUrl} alt=""/>:<span className="brand-mark">{appearance.logoInitials}</span>}
         <span className="brand-name">{profile.name} <small>{appearance.brandSuffix}</small></span>
       </Link>
       <nav className="desktop-nav" aria-label="Navegação principal">
@@ -40,7 +40,7 @@ export async function SiteFooter() {
   const [profile,appearance] = await Promise.all([getProfile(),getContent("appearance",defaultAppearance)]);
   return (
     <footer className="site-footer">
-      <Link className="brand" href="/"><span className="brand-mark">{appearance.logoInitials}</span><span className="brand-name">{profile.name} <small>{appearance.brandSuffix}</small></span></Link>
+      <Link className="brand" href="/">{appearance.logoImageUrl?<img className="brand-logo-image" src={appearance.logoImageUrl} alt=""/>:<span className="brand-mark">{appearance.logoInitials}</span>}<span className="brand-name">{profile.name} <small>{appearance.brandSuffix}</small></span></Link>
       <nav aria-label="Páginas do site"><Link href="/especialidades">Especialidades</Link><Link href="/atendimento">Atendimento</Link><Link href="/cuidados">Cuidados</Link><Link href="/depoimentos">Depoimentos</Link><Link href="/duvidas">Dúvidas</Link><Link href="/orcamento">Orçamento</Link></nav>
       <div><a href={`https://instagram.com/${profile.instagram}`} target="_blank" rel="noreferrer">Instagram</a><Link href="/admin"><LockKeyhole size={14} /> Painel CMS</Link></div>
     </footer>
