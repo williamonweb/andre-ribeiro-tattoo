@@ -1,6 +1,6 @@
 "use client";
 
-import { upload } from "@vercel/blob/client";
+import { uploadPresigned } from "@vercel/blob/client";
 import { useEffect, useState } from "react";
 
 const UPLOAD_EVENT = "andre-cms-upload";
@@ -22,10 +22,10 @@ export function BlobImageInput({name,folder,label,help,maxBytes=12_000_000,class
     setStatus("Enviando imagem…");
     window.dispatchEvent(new CustomEvent(UPLOAD_EVENT,{detail:1}));
     try{
-      const blob=await upload(`${folder}/${Date.now()}-${safeName(file.name)}`,file,{access:"public",handleUploadUrl:"/api/admin/upload",multipart:file.size>4_000_000,onUploadProgress:({percentage})=>setProgress(Math.round(percentage))});
+      const blob=await uploadPresigned(`${folder}/${Date.now()}-${safeName(file.name)}`,file,{access:"public",handleUploadUrl:"/api/admin/upload",multipart:file.size>4_000_000,onUploadProgress:({percentage})=>setProgress(Math.round(percentage))});
       setUrl(blob.url); setStatus("Imagem pronta para salvar."); setProgress(100);
     }catch(error){
-      console.error(error); setStatus("Não foi possível enviar. Confirme se o Blob público está conectado.");
+      console.error(error); setStatus(error instanceof Error?`Não foi possível enviar: ${error.message}`:"Não foi possível enviar a imagem.");
     }finally{
       window.dispatchEvent(new CustomEvent(UPLOAD_EVENT,{detail:-1}));
     }
