@@ -28,3 +28,12 @@ CREATE TABLE IF NOT EXISTS quote_request (
   status TEXT NOT NULL DEFAULT 'novo',
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE IF NOT EXISTS cms_settings (
+  id INTEGER PRIMARY KEY,
+  username TEXT NOT NULL,
+  password_salt TEXT NOT NULL,
+  password_hash TEXT NOT NULL,
+  session_version INTEGER NOT NULL DEFAULT 1,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);

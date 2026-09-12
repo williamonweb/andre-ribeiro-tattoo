@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { defaultAppearance,getContent } from "@/lib/content";
 
-export async function generateMetadata():Promise<Metadata>{const appearance=await getContent("appearance",defaultAppearance);return{title:appearance.siteTitle,description:appearance.siteDescription,icons:{icon:"/favicon.svg",shortcut:"/favicon.svg"}};}
+export async function generateMetadata():Promise<Metadata>{const appearance=await getContent("appearance",defaultAppearance);const icon=appearance.logoImageUrl||"/favicon.svg";return{title:appearance.siteTitle,description:appearance.siteDescription,icons:{icon,shortcut:icon}};}
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const appearance=await getContent("appearance",defaultAppearance);

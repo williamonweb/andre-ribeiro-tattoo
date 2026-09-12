@@ -22,6 +22,8 @@ export const defaultHome = {
 export const defaultAppearance = {
   logoInitials: "AR",
   logoImageUrl: "",
+  logoSize: "86",
+  showBrandText: true,
   brandSuffix: "Tattoo",
   goldColor: "#c8a45f",
   goldBrightColor: "#e1c27d",
