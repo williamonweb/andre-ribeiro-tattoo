@@ -507,3 +507,42 @@ a { color: inherit; text-decoration: none; }
   .route-faq details p { margin-left: 0; margin-right: 0; }
   .quote-route { padding-block: 55px 80px; }
 }
+
+/* Rodapé institucional */
+.site-footer { min-height: 0; padding: 0 clamp(22px,6vw,90px); display: block; }
+.site-footer > .site-footer-main { min-height: 150px; padding: 30px 0; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 34px; }
+.site-footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 20px; color: #817e78; font-size: 11px; }
+.site-footer-nav a:hover,.footer-legal a:hover { color: var(--gold-bright); }
+.site-footer > .site-footer-main > .site-footer-actions { justify-self: end; display: flex; align-items: center; gap: 22px; color: #aaa7a0; font-size: 12px; }
+.site-footer-actions a { display: inline-flex; align-items: center; gap: 6px; }
+.site-footer-actions a:hover { color: var(--gold-bright); }
+.site-footer > .site-footer-bottom { min-height: 68px; padding: 16px 0; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; border-top: 1px solid var(--line); }
+.site-footer-bottom > p { margin: 0; color: #6f6c67; font-size: 11px; }
+.footer-legal { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px 20px; color: #8b8881; font-size: 11px; }
+.forge-credit { justify-self: end; display: inline-flex; align-items: center; gap: 5px; color: #77746e; font-size: 11px; }
+.forge-credit strong { color: var(--gold-bright); font-weight: 700; letter-spacing: .04em; }
+.forge-credit:hover { color: #f3efe6; }
+
+/* Termos e privacidade */
+.legal-page { max-width: 980px; margin: 0 auto; padding: clamp(74px,9vw,130px) clamp(22px,6vw,70px) clamp(90px,10vw,140px); }
+.legal-page header { padding-bottom: 42px; border-bottom: 1px solid var(--line); }
+.legal-page header .eyebrow { margin-bottom: 20px; }
+.legal-page h1 { margin: 0; font: 500 clamp(3rem,7vw,5.8rem)/.92 Georgia,"Times New Roman",serif; letter-spacing: -.045em; }
+.legal-page header > p:last-child { margin: 24px 0 0; color: #77746e; font-size: 12px; }
+.legal-page section { max-width: 790px; padding-top: 22px; }
+.legal-page h2 { margin: 42px 0 12px; font: 500 clamp(1.25rem,2.4vw,1.7rem) Georgia,"Times New Roman",serif; color: #ece8df; }
+.legal-page section p { margin: 0; color: #96928b; font-size: 14px; line-height: 1.85; }
+
+@media (max-width: 1000px) {
+  .site-footer > .site-footer-main { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 25px; }
+  .site-footer > .site-footer-main > .site-footer-actions { justify-self: center; }
+  .site-footer > .site-footer-bottom { grid-template-columns: 1fr; justify-items: center; gap: 12px; text-align: center; }
+  .forge-credit { justify-self: center; }
+}
+
+@media (max-width: 640px) {
+  .site-footer > .site-footer-main { padding: 38px 0; }
+  .site-footer-nav { max-width: 330px; gap: 13px 18px; }
+  .site-footer > .site-footer-bottom { padding: 22px 0 26px; }
+  .footer-legal { flex-direction: column; }
+}
